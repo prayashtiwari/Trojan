@@ -6,7 +6,7 @@ Trojan AI is an open-source Windows desktop AI assistant designed to bring intel
 
 Built with Python, React, and Electron, Trojan combines an AI-powered backend with a modern desktop experience.
 
-<img width="512" height="512" alt="greek" src="https://github.com/user-attachments/assets/a5f4fc13-1afb-494d-9673-3612e6518c77" />
+<img width="512" height="512" alt="greek" src="greek.png" />
 
 
 ---
@@ -29,11 +29,11 @@ Instead of being limited to a browser-based chatbot, Trojan connects AI conversa
 
 ## Screenshots
 
-<img width="1920" height="1080" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/07dd2a9d-13d0-4529-a5b4-02e7984c71b2" />
-<img width="1920" height="1080" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/f4ae811a-18a5-48ef-97eb-fd3a173e214d" />
-<img width="1920" height="1080" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/20c7c96d-694e-4138-b31b-5f1fbdc4144d" />
-<img width="1920" height="1080" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/64914e17-1be6-4c99-8d1d-4ccb6cdb0d6e" />
-<img width="1920" height="1080" alt="Screenshot (5)" src="https://github.com/user-attachments/assets/877ee357-87ee-4110-bdd6-0fc651b1c93d" />
+<img width="1920" height="1080" alt="Screenshot (1)" src="assets/screenshots/screenshot-01.png" />
+<img width="1920" height="1080" alt="Screenshot (2)" src="assets/screenshots/screenshot-02.png" />
+<img width="1920" height="1080" alt="Screenshot (3)" src="assets/screenshots/screenshot-03.png" />
+<img width="1920" height="1080" alt="Screenshot (4)" src="assets/screenshots/screenshot-04.png" />
+<img width="1920" height="1080" alt="Screenshot (5)" src="assets/screenshots/screenshot-05.png" />
 
 
 ## Technology Stack
