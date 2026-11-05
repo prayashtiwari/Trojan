@@ -6,7 +6,7 @@ Trojan AI is an open-source Windows desktop AI assistant designed to bring intel
 
 Built with Python, React, and Electron, Trojan combines an AI-powered backend with a modern desktop experience.
 
-![Trojan Dashboard]([PASTE_THE_GITHUB_ASSET_URL_HERE](https://github.com/user-attachments/assets/03868537-a622-4e81-a7d9-dc289f679fd9))
+<img width="512" height="512" alt="greek" src="https://github.com/user-attachments/assets/a5f4fc13-1afb-494d-9673-3612e6518c77" />
 
 
 ---
