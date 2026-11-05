@@ -6,7 +6,7 @@ Trojan AI is an open-source Windows desktop AI assistant designed to bring intel
 
 Built with Python, React, and Electron, Trojan combines an AI-powered backend with a modern desktop experience.
 
-<img width="512" height="512" alt="greek" src="https://github.com/user-attachments/assets/d9d0105d-ec1a-415c-92d9-ac40683ecb44" />
+<img width="512" height="512" alt="greek" src="https://github.com/user-attachments/assets/03868537-a622-4e81-a7d9-dc289f679fd9" />
 
 
 ---
@@ -29,24 +29,11 @@ Instead of being limited to a browser-based chatbot, Trojan connects AI conversa
 
 ## Screenshots
 
-<img width="1920" height="1080" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/ce64de8f-6321-4186-b965-7e8f33e32e5a" />
-
-
-
-<img width="1920" height="1080" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/3ab9adcb-4ae2-474f-9329-42df6a9b211d" />
-
-
-
-<img width="1920" height="1080" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/00734fa6-1f40-4385-911c-bf0588fa2232" />
-
-
-
-<img width="1920" height="1080" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/f1b964ca-3a0e-49eb-97df-a90243477222" />
-
-
-
-<img width="1920" height="1080" alt="Screenshot (5)" src="https://github.com/user-attachments/assets/40b0aa2d-0e84-4ff0-8071-ee493fd56734" />
-
+<img width="1920" height="1080" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/07dd2a9d-13d0-4529-a5b4-02e7984c71b2" />
+<img width="1920" height="1080" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/f4ae811a-18a5-48ef-97eb-fd3a173e214d" />
+<img width="1920" height="1080" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/20c7c96d-694e-4138-b31b-5f1fbdc4144d" />
+<img width="1920" height="1080" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/64914e17-1be6-4c99-8d1d-4ccb6cdb0d6e" />
+<img width="1920" height="1080" alt="Screenshot (5)" src="https://github.com/user-attachments/assets/877ee357-87ee-4110-bdd6-0fc651b1c93d" />
 
 
 ## Technology Stack
