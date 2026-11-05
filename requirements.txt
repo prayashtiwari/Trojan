@@ -1,0 +1,12 @@
+ddgs
+openai
+psutil
+numpy
+pyttsx3
+requests
+scipy
+sounddevice
+SpeechRecognition
+pycaw
+screen-brightness-control
+pyinstaller

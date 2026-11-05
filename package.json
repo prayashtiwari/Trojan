@@ -1,0 +1,102 @@
+{
+  "name": "trojan-ai",
+  "version": "1.4.3",
+  "description": "TROJAN AI Windows desktop command center",
+  "main": "electron/main.cjs",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"electron .\"",
+    "build": "tsc --noEmit && vite build",
+    "dist": "npm run build && electron-builder --win nsis portable",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^11.11.17",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "rcedit": "^5.0.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1"
+  },
+  "build": {
+    "appId": "com.trojan.ai",
+    "productName": "Trojan",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "build/icon.ico"
+    ],
+    "extraResources": [
+      {
+        "from": ".venv",
+        "to": "python-runtime",
+        "filter": [
+          "**/*",
+          "!**/__pycache__{,/**/*}",
+          "!**/*.pyc",
+          "!**/*.pyo",
+          "!**/tests{,/**/*}",
+          "!**/test{,/**/*}",
+          "!**/pip{,/**/*}",
+          "!**/setuptools{,/**/*}",
+          "!**/wheel{,/**/*}"
+        ]
+      },
+      {
+        "from": "backend_server.py",
+        "to": "backend_server.py"
+      },
+      {
+        "from": "trojanassiastant.py",
+        "to": "trojanassiastant.py"
+      },
+      {
+        "from": "voice.py",
+        "to": "voice.py"
+      },
+      {
+        "from": "context_store.py",
+        "to": "context_store.py"
+      },
+      {
+        "from": "tool_registry.py",
+        "to": "tool_registry.py"
+      },
+      {
+        "from": "build/icon.ico",
+        "to": "trojan-icon.ico"
+      }
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false,
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "artifactName": "Trojan-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Trojan AI",
+      "include": "build/installer.nsh"
+    },
+    "portable": {
+      "artifactName": "Trojan-Portable-${version}.${ext}"
+    }
+  }
+}
