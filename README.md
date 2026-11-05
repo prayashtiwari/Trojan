@@ -31,13 +31,22 @@ Instead of being limited to a browser-based chatbot, Trojan connects AI conversa
 
 <img width="1920" height="1080" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/ce64de8f-6321-4186-b965-7e8f33e32e5a" />
 
+
+
 <img width="1920" height="1080" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/3ab9adcb-4ae2-474f-9329-42df6a9b211d" />
+
+
 
 <img width="1920" height="1080" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/00734fa6-1f40-4385-911c-bf0588fa2232" />
 
+
+
 <img width="1920" height="1080" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/f1b964ca-3a0e-49eb-97df-a90243477222" />
 
+
+
 <img width="1920" height="1080" alt="Screenshot (5)" src="https://github.com/user-attachments/assets/40b0aa2d-0e84-4ff0-8071-ee493fd56734" />
+
 
 
 ## Technology Stack
