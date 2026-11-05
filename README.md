@@ -1,103 +1,197 @@
 # Trojan AI
 
-Trojan AI is a Windows desktop command center around the existing Python
-assistant. The Python module remains the owner of OpenRouter requests,
-conversation context, tools, speech recognition, and text-to-speech. Electron
-only renders the interface and calls a short-lived, authenticated loopback
-bridge.
+**Your desktop. Your assistant. Your command center.**
 
-## Context and tools
+Trojan AI is an open-source Windows desktop AI assistant designed to bring intelligent conversations, voice interaction, local memory, and desktop controls into one unified interface.
 
-Conversation turns and user-approved memories are stored locally in
-`%APPDATA%\Trojan AI\context.db` (or the path in `TROJAN_CONTEXT_PATH`).
-The assistant sends only the bounded recent conversation window, plus approved
-memories, to OpenRouter. The desktop Settings screen can add/delete memories;
-History can clear the conversation. The local backend also exposes authenticated
-`GET /conversation`, `POST /conversation/clear`, `GET /memories`,
-`POST /memories`, `POST /memories/delete`, `POST /memories/clear`,
-`GET /history`, `GET /projects`, `POST /projects`, and
-`POST /projects/delete`.
+Built with Python, React, and Electron, Trojan combines an AI-powered backend with a modern desktop experience.
 
-Tools are registered with a validated JSON schema, permission label, and
-execution timeout. Tool failures are returned to the model as explicit results
-instead of being presented as successful actions. Configure the context window
-with `TROJAN_CONTEXT_HISTORY_LIMIT` (default: 40 turns).
+<img width="512" height="512" alt="greek" src="https://github.com/user-attachments/assets/4a286cc0-a7c6-463f-ae77-c23dc3d84182" />
 
-Common desktop commands are handled locally before an AI request is made:
-`open YouTube`, `open Notepad`, `increase volume`, `decrease volume`,
-`increase brightness`, and `decrease brightness`. Relative volume and
-brightness changes use a 10 percent step by default, or the percentage spoken
-by the user. Website targets are normalized before being opened so malformed
-tool-call formatting cannot be passed to the browser.
 
-Apple Music is launched through its registered Windows AppsFolder identity
-(`AppleInc.AppleMusicWin_nzyj5cx40ttqa!App`) instead of fuzzy matching an
-executable or unrelated shortcut.
+---
 
-## Development
+## Overview
 
-1. Create and activate a Python virtual environment.
-2. Install Python dependencies:
+Trojan AI aims to make interacting with artificial intelligence feel like interacting with a personal desktop assistant.
 
-   ```powershell
-   .venv\Scripts\python.exe -m pip install -r requirements.txt
-   ```
+Instead of being limited to a browser-based chatbot, Trojan connects AI conversations with desktop functionality through a dedicated Windows application.
 
-3. Copy `.env.example` to `.env` and set `OPENROUTER_API_KEY` locally. Never
-   commit `.env` or put a real key in frontend code.
-4. Install Node.js 20 or newer, then install frontend dependencies:
+## Features
 
-   ```powershell
-   npm install
-   npm run dev
-   ```
+- **AI-powered conversations** — Interact with AI models through OpenRouter.
+- **Voice interaction** — Speak to Trojan and receive spoken responses.
+- **Persistent memory** — Store and manage user-approved memories locally.
+- **Conversation history** — Retain and manage previous conversations.
+- **Desktop controls** — Execute supported desktop commands.
+- **Modern interface** — A dedicated Electron and React desktop interface.
+- **Tool integration** — A structured tool system with validation, permissions, and execution timeouts.
 
-The Electron main process starts `backend_server.py` on `127.0.0.1` with an
-ephemeral bearer token. The renderer receives only the restricted methods in
-`electron/preload.cjs`; it has no Node.js or filesystem access.
+## Screenshots
 
-## Voice
+<img width="1920" height="1080" alt="05 11 2026_22 09 30_REC" src="https://github.com/user-attachments/assets/fcb96855-247c-441d-a5f1-fc1efbdfb1e8" />
 
-The microphone endpoint uses the existing `sounddevice` capture and
-SpeechRecognition transcription path. Response speech uses the existing
-ElevenLabs configuration when available, then Windows SAPI and pyttsx3
-fallbacks. Set `TROJAN_VOICE_ENABLED=0` for text-only operation. If a device
-is unavailable, typed chat remains usable. Optional diagnostics and microphone
-selection are documented in `.env.example`.
+<img width="1920" height="1080" alt="05 11 2026_22 12 03_REC" src="https://github.com/user-attachments/assets/a6cf5118-f47c-4d8b-8ff9-a135dc63509c" />
 
-Desktop chat responses are spoken by the backend by default. If ElevenLabs
-fails, Trojan logs the failure and falls back to Windows SAPI and then
-pyttsx3. Simple `KEY=VALUE` entries are loaded from the project `.env` file
-(or `TROJAN_ENV_FILE`) when those variables are not already present in the
-process environment.
+<img width="1920" height="1080" alt="05 11 2026_22 12 18_REC" src="https://github.com/user-attachments/assets/2d6942d3-d3e0-46cf-9a51-422edc9bb880" />
 
-## Packaging
+<img width="1920" height="1080" alt="05 11 2026_22 12 37_REC" src="https://github.com/user-attachments/assets/7ed1857c-ec54-4eaa-8d13-60c64056d2fd" />
 
-The checked-in builder targets are:
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | AI backend and assistant logic |
+| React | User interface |
+| Electron | Desktop application framework |
+| OpenRouter API | AI model connectivity |
+| ElevenLabs | Voice generation |
+| SpeechRecognition | Speech transcription |
+| SQLite | Local conversation and memory storage |
+
+## Architecture
+
+Trojan uses a Python backend and an Electron-based desktop frontend.
+
+- **Python backend:** Handles AI requests, conversation context, tools, speech recognition, and text-to-speech.
+- **Electron main process:** Manages the desktop application and starts the local backend.
+- **React renderer:** Displays the user interface.
+- **Preload bridge:** Exposes restricted application methods to the renderer.
+
+The local backend listens on `127.0.0.1` and uses an ephemeral bearer token for authenticated communication.
+
+## Installation and Development
+
+### Prerequisites
+
+- Windows
+- Python
+- Node.js 20 or newer
+- An OpenRouter API key
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/prayashtiwari/Trojan.git
+cd Trojan
+```
+
+### 2. Set up Python
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 3. Configure environment variables
+
+Copy `.env.example` to `.env` and configure your API key:
+
+```env
+OPENROUTER_API_KEY=your_api_key_here
+```
+
+Never commit your actual `.env` file or expose API credentials in frontend code.
+
+### 4. Install Node dependencies
+
+```bash
+npm install
+```
+
+### 5. Launch Trojan
+
+```bash
+npm run dev
+```
+
+## Voice Configuration
+
+Trojan supports microphone input through its SpeechRecognition pipeline.
+
+For spoken responses, it can use:
+
+1. ElevenLabs
+2. Windows SAPI
+3. pyttsx3 fallback
+
+Voice functionality can be disabled by setting:
+
+```env
+TROJAN_VOICE_ENABLED=0
+```
+
+Typed conversations remain available when microphone or audio devices are unavailable.
+
+## Building for Windows
+
+To build the application:
 
 ```powershell
 npm run build
 npm run dist
 ```
 
-This produces an NSIS installer and a portable executable in `release/`.
-The Python runtime used for a packaged build must be prepared on Windows with
-the same architecture as the target. For a self-contained backend executable,
-build `Trojan-AI.spec` first:
+The configured packaging process produces an NSIS installer and a portable executable in the `release/` directory.
+
+For a packaged Python backend, prepare the executable using:
 
 ```powershell
 .venv\Scripts\pyinstaller.exe Trojan-AI.spec
 ```
 
-Do not treat a development virtual environment as a release artifact unless
-it has been built specifically for the target machine. A release checklist
-must verify the installer and portable executable on a clean Windows machine,
-including backend startup, API errors, voice fallback, and shutdown cleanup.
+Test packaged builds on a clean Windows machine before distributing them.
 
-## Verification boundaries
+## Project Structure
 
-- Windows microphone and SAPI behavior requires a real microphone and audio
-  device; automated voice tests cover playback coordination and fallbacks
-  without fabricating microphone input.
-- API credentials are intentionally external configuration; they are never
-  bundled in the frontend.
+```text
+Trojan/
+├── electron/          # Electron main process and preload
+├── public/            # Static assets
+├── src/               # React frontend
+├── tests/             # Automated tests
+├── build/              # Packaging assets
+├── backend_server.py  # Local backend server
+├── context_store.py   # Conversation and memory storage
+├── tool_registry.py   # Tool registration and validation
+├── voice.py           # Voice functionality
+├── requirements.txt   # Python dependencies
+├── package.json       # Node dependencies and scripts
+└── README.md
+```
+
+## Roadmap
+
+Planned improvements:
+
+- [ ] Improve voice interaction and reliability.
+- [ ] Expand desktop automation capabilities.
+- [ ] Improve memory and context management.
+- [ ] Expand automated testing.
+- [ ] Improve documentation and onboarding.
+- [ ] Publish stable Windows releases.
+
+## Contributing
+
+Contributions, bug reports, and feature suggestions are welcome.
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Make your changes.
+4. Test your changes.
+5. Submit a pull request.
+
+## Security
+
+Do not publish API keys, passwords, personal data, or other sensitive credentials.
+
+If you discover a security vulnerability, report it responsibly rather than publishing exploit details.
+
+## License
+
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+
+---
+
+**Trojan AI** — An open-source experiment in building a more capable desktop assistant.
